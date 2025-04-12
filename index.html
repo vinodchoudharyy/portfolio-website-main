@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VINODFOILO🌐</title>
+     <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet" />
+
+  <!-- Vanta.js + Three.js for background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+
+
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <style>
+    *{
+margin:0px;
+padding:0px;
+
+    }
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      margin: 0;
+      padding: 0px;
+      color: #333;
+    }
+
+    #bg {
+      min-height: 100vh;
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #6f34fe;
+      margin-bottom: 20px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .c-btn {
+      background: #fca61f;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .c-btn:hover {
+      background-color: #6f34fe;
+    }
+
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      border-radius: 8px;
+      position: fixed;
+      z-index: 1000;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 3s;
+    }
+
+    @keyframes fadein {
+      from {bottom: 10px; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 10px; opacity: 0;}
+    }
+  </style>
+
+    <!-- bootstrap css cdn link  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <!-- custom css file -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- bootstrap icon cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+
+    <!-- for adding animation to website we have use AOS library 
+    AOS Library css file cdn link -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- jquery cdn link  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+      window.onload = function () {
+        VANTA.BIRDS({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          backgroundColor: 0x0f1624,
+          color1: 0xfca61f,
+          color2: 0x6f34fe
+        });
+      };
+    </script>
+    
+    </script>
+
+    </script>
+  </head>
+  <body>
+    <!-- navbar starts -->
+    <nav
+      id="navbar-top"
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top"
+    >
+      <div class="container-fluid px-5">
+        <a class="navbar-brand fw-bold fs-2 navbar-brand-color" href="#"
+          >VINODFOILO⚜🔱</a
+        >
+        <button
+          class="nav-menu d-md-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          title="Toggle navigation menu"
+        >
+          <i class="bi bi-menu-button-fill"></i>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-4" style="font-size: 1.1rem">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#service">Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">Blog</a>
+            </li>
+          </ul>
+        </div>
+        
+      </li>
+      <ul>
+        <li class="nav-item liststylenone">
+          <a class="c-btn ms-4 py-2 px-4 rounded-pill d-none d-md-block textdecorationnone"nav-link href="https://outlook.office.com/mail/oauthRedirect.html?app=native&state=Y29ycmVsYXRpb25faWQ9OTI3ZWMxNTItNzQwZC05MTkxLTI4YzMtNjgxMDc1ZTM1ZjEwJmxvZ2luX2hpbnQ9dmlub2RidXNpbmVzczAxQGdtYWlsLmNvbSZ0eXBlX2hpbnQ9R29vZ2xlJmluc3RhbmNlX2lkPTE%3D&code=4/0Ab_5qlka1wVqZLy-NPY-EzdmFecQ3llVhB46OqVeBIrdWMCK4pXEw8LfqyLwoKAkHkQmLw&scope=email%20profile%20https://mail.google.com/%20https://www.googleapis.com/auth/drive%20https://www.googleapis.com/auth/drive.file%20https://www.googleapis.com/auth/contacts%20https://www.googleapis.com/auth/calendar%20https://www.googleapis.com/auth/user.birthday.read%20openid%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email&authuser=0&prompt=consent">
+            Mail📩</a>
+        </li>
+      </ul>
+       
+      
+      <li class="nav-item liststylenone">
+        <a class="c-btn ms-4 py-2 px-4 rounded-pill d-none d-md-block  textdecorationnone"nav-link href="#contact">Contact👤</a>
+      </li>
+    </ul>
+      </div>
+    </nav>
+    <!-- navbar ends here -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>VINODFOILO🌐</title>
+    
+      <!-- Google Font -->
+      <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet"/>
+    
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    
+      <!-- Bootstrap Icons -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" rel="stylesheet"/>
+    
+      <!-- AOS Animation CSS -->
+      <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet"/>
+    
+      <!-- Vanta.js + Three.js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        body {
+          font-family: 'Josefin Sans', sans-serif;
+          overflow-x: hidden;
+          background-color: #0f1624;
+        }
+    
+        #vanta-bg {
+          width: 100%;
+          height: 100vh;
+          position: relative;
+          overflow: hidden;
+        }
+    
+        #vanta-bg canvas {
+          position: absolute !important;
+          top: 0;
+          left: 0;
+          z-index: 0;
+        }
+    
+        #vanta-bg .content {
+          position: relative;
+          z-index: 1;
+          padding-top: 100px;
+          padding-bottom: 100px;
+        }
+    
+        .c-btn {
+          background: #fca61f;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 50px;
+          font-size: 1rem;
+          text-decoration: none;
+          width: 130px;
+          text-align: center;
+          
+          align-content: center
+        }
+    
+        .c-btn:hover {
+          background: #6f34fe;
+          color: white;
+        }
+    
+        .slide-right-image {
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          object-fit: cover;
+          animation: slideRight 2s ease forwards;
+        }
+    
+        @keyframes slideRight {
+          from {
+            transform: translateX(-100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+      </style>
+    </head>
+    <body>
+    
+      <!-- Home Section with Vanta Background -->
+      <div id="vanta-bg">
+        
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 text-center text-md-start" data-aos="slide-right">
+              <h2 style="color: #fca61f">
+                Hello! I Am <br /><span class="c-orange">VINOD CHOUDHARY⚡</span>
+              </h2>
+              <h4 style="color: #fdfdfd;" class="mt-3">
+                I am a passionate Software Engineer. My journey in tech began when I started pursuing my B.Tech in Computer Science & Engineering in 2022.
+                With over 2 years of hands-on experience, I specialize in developing fully responsive websites and mobile apps — along with backend integration.<br><br>
+                I love building smart, user-friendly solutions that create real impact.
+              </h4>
+              
+              <button class="c-btn h-btn mt-4 py-3 px-5">
+                <a href="https://linktr.ee/vinodchoudhary_0007" style="color: white; text-decoration: none;">Hire Me</a>
+              </button>
+            </div>
+    
+            <div class="col-md-4 d-none d-md-block text-center">
+              <img src="images/profile2.png.jpg" class="slide-right-image" alt="Profile Image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Scripts -->
+      <script>
+        VANTA.BIRDS({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          backgroundColor: 0x0f1624,
+          color1: 0xfca61f,
+          color2: 0x6f34fe
+        });
+      </script>
+    
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+      <!-- AOS JS -->
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+    </body>
+    </html>
+    
+    <!-- expertise section starts -->
+    <section class="expertise mt-5" id="service">
+      <div class="heading text-center">
+        <small>My Expertise</small>
+        <h3>
+          Provide Wide Range of <br />
+          Digital Services
+        </h3>
+      </div>
+      <div class="row justify-content-evenly mt-5">
+        <div class="col-10 col-md-4" data-aos="fade-up">
+          <div class="service-card">
+            <div class="img">
+              <img
+                src="images/service-icon1.png"
+                class="w-25 img-fluid img"
+                alt=""
+              />
+            </div>
+            <div class="content mt-3">
+              <h4>Web Design</h4>
+              <p class="text-muted">
+               
+              </p>
+              <a href="" class="link">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-10" data-aos="fade-up">
+          <div class="service-card">
+            <div class="img">
+              <img
+                src="images/service-icon2.png"
+                class="w-25 img-fluid img"
+                alt=""
+              />
+            </div>
+            <div class="content mt-3">
+              <h4>Web Development</h4>
+              <p class="text-muted">
+                
+              </p>
+              <a href="" class="link">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-10" data-aos="fade-up">
+          <div class="service-card">
+            <div class="img">
+              <img
+                src="images/service-icon3.png"
+                class="w-25 img-fluid img"
+                alt=""
+              />
+            </div>
+            <div class="content mt-3">
+              <h4>Debugging</h4>
+              <p class="text-muted">
+              
+              </p>
+              <a href="" class="link">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- expertise section ends here -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Skills | Vinod Choudhary</title>
+    
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    
+      <!-- AOS CSS -->
+      <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet"/>
+    
+      <!-- Google Font -->
+      <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet"/>
+    
+      <style>
+        body {
+          font-family: 'Josefin Sans', sans-serif;
+          background-color: #0f1624;
+          color: #fff;
+        }
+    
+        .skill {
+          background-color: #0f1624;
+        }
+    
+        .circular-progress {
+          position: relative;
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background: conic-gradient(#fca61f 0%, #2c2f48 0%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: auto;
+        }
+    
+        .circular-progress::before {
+          content: "";
+          position: absolute;
+          width: 90px;
+          height: 90px;
+          background-color: #0f1d39;
+          border-radius: 50%;
+        }
+    
+        .progress-value {
+          color: #f2f2ff;
+          position: absolute;
+          font-size: 18px;
+          font-weight: bold;
+          z-index: 1;
+        }
+    
+        .progress-card {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+    
+        .text {
+          color: #fca61f;
+          font-weight: 600;
+        }
+    
+        .heading h3 {
+          color: #fca61f;
+        }
+    
+        .text-muted {
+          color: #ccc !important;
+        }
+    
+        .c-btn {
+          background: #fca61f;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 50px;
+          font-size: 1rem;
+        }
+    
+        .c-btn:hover {
+          background: #6f34fe;
+          color: white;
+        }
+      </style>
+    </head>
+    <body>
+    
+    <!-- Skill Section Starts -->
+    <section class="skill mt-5 py-5" id="about">
+      <div class="row justify-content-start px-5">
+        <!-- Left: Progress Circles -->
+        <div class="col-12 col-md-5 skill-with-progress" data-aos="slide-right">
+          <div class="row justify-content-evenly">
+            <div class="col-10 col-md-6">
+              <div class="progress-card">
+                <div class="circular-progress" data-progress="80">
+                  <span class="progress-value">80%</span>
+                </div>
+                <br />
+                <span class="text">HTML & CSS</span>
+              </div>
+            </div>
+            <div class="col-10 col-md-6 mt-4 mt-md-0">
+              <div class="progress-card">
+                <div class="circular-progress" data-progress="50">
+                  <span class="progress-value">50%</span>
+                </div>
+                <br />
+                <span class="text">JavaScript</span>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-evenly mt-4">
+            <div class="col-10 col-md-6">
+              <div class="progress-card">
+                <div class="circular-progress" data-progress="60">
+                  <span class="progress-value">60%</span>
+                </div>
+                <br />
+                <span class="text">Python</span>
+              </div>
+            </div>
+            <div class="col-10 col-md-6 mt-4 mt-md-0">
+              <div class="progress-card">
+                <div class="circular-progress" data-progress="60">
+                  <span class="progress-value">60%</span>
+                </div>
+                <br />
+                <span class="text">ReactJS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Right: Skill Details -->
+        <div class="col-12 col-md-5 skill-detail mt-5" data-aos="slide-left">
+          <div class="heading">
+            <small>My Skills</small>
+            <h3>Beautiful & Unique Digital Experiences</h3>
+            <p class="text-muted">
+              🔸 MONGO DB  
+              🔸 SQL  
+              🔸 UI/UX  
+              🔸 BUGHUNTING  
+              🔸 WEBTESTING  
+              🔸 C++  
+              🔸 DATA ANALYTICS  
+              🔸 ANDROID STUDIO  
+              🔸 MOBILE APP DEVELOPMENT
+            </p>
+            <p class="text-muted">
+              Because pleasure is despised or hated or fled,
+              but falling into it results in great pain.
+            </p>
+            <button class="c-btn mt-3 py-3 px-5 rounded-pill">
+              <a href="Entry Level Web Developer Resume.pdf" download style="text-decoration: none; color: white;">
+                Download Resume
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skill Section Ends -->
+    
+    <!-- JavaScript to Animate Circle Progress -->
+    <script>
+      document.querySelectorAll('.circular-progress').forEach(progress => {
+        const value = progress.getAttribute('data-progress');
+        progress.style.background = `conic-gradient(#fca61f ${value * 3.6}deg, #2c2f48 ${value * 3.6}deg)`;
+      });
+    </script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    
+    </body>
+    </html>
+    
+    
+
+    <!-- blog section starts -->
+    <style>
+      body {
+        font-family: 'Josefin Sans', sans-serif;
+        background: #f2f2ff;
+        margin: 0;
+        padding: 0;
+      }
+  
+      .projects-section {
+        padding: 60px 20px;
+        background-color: #fff;
+      }
+
+      .projects-section h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #3f396d;
+      }
+  
+      .project-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: #f9f9f9;
+      }
+  
+      .project-card:hover {
+        transform: translateY(-10px);
+      }
+  
+      .project-card .card-body {
+        padding: 25px;
+      }
+  
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #6f34fe;
+      }
+  
+      .project-desc {
+        font-size: 1rem;
+        color: #333;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <section class="projects-section" id="projects">
+      <div class="container w-100">
+        <h2>My Projects</h2>
+        <div class="row g-4">
+  
+          <div class="col-md-4">
+            <div class="card project-card">
+              <div class="card-body">
+                <h5 class="project-title">Diagnostic Lab Software</h5>
+                <p class="project-desc">A comprehensive platform for managing lab tests, patient reports, billing, and inventory in diagnostic labs.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="card project-card">
+              <div class="card-body">
+                <h5 class="project-title">School Fees Management System</h5>
+                <p class="project-desc">An advanced system to track and manage fee collection, generate receipts, and maintain student payment records efficiently.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="card project-card">
+              <div class="card-body">
+                <h5 class="project-title">Campus Connect</h5>
+                <p class="project-desc">A networking and communication platform for students, faculty, and administrators to streamline campus activities.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="card project-card">
+              <div class="card-body">
+                <h5 class="project-title">Healthcare Management System</h5>
+                <p class="project-desc">A digital health solution for clinics and hospitals to manage patient records, appointments, billing, and telemedicine.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="card project-card">
+              <div class="card-body">
+                <h5 class="project-title">E-Commerce Website</h5>
+                <p class="project-desc">An online shopping platform with product catalog, cart functionality, payment gateway integration, and user dashboard.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="card project-card">
+              <div class="card-body">
+                <h5 class="project-title">Restaurant Management System</h5>
+                <p class="project-desc">A POS and order tracking system for restaurants with real-time kitchen updates, table booking, and staff management.</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="card project-card">
+              <div class="card-body">
+                <h5 class="project-title">Responsive Portfolio Website</h5>
+                <p class="project-desc">A personal portfolio website showcasing skills, projects, and contact form with a Vanta.js animated background and EmailJS integration.</p>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </section>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  
+  </html>
+  
+        <!-- here we will make modals if Read more link is clicked the modal will popup -->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              
+                <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i></button>
+              
+              <div class="modal-body px-4">
+                <div class="img">
+                  <img src="images/2048game.png" class="img-fluid" alt="">
+                </div>
+               
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              
+                <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i></button>
+              
+              <div class="modal-body px-4">
+                <div class="img">
+                  <img src="images/currency-converter.png" class="img-fluid" alt="">
+                </div>
+                <div class="content mt-3">
+                  <small>By Vinod Choudhary</small
+                    ><span class="text-muted ms-2 ms-md-0">Nov 25,2024</span>
+                  <h4 class="card-title mt-3">But who would rightly blame him?</h4>
+                  <div class="social-links mt-4">
+                      <button href="" class="rounded-pill dribble">
+                        <i class="bi bi-dribbble"></i>
+                      </button>
+                      <button href="" class="rounded-pill whatsapp">
+                        <i class="bi bi-whatsapp"></i>
+                      </button>
+                      <button href="" class="rounded-pill behance">
+                        <i class="bi bi-behance"></i>
+                      </button>
+                  </div>
+                  <p class="text-muted mt-3"> </p>
+                </div>
+              </div>
+              <div class="heading px-2">
+                <h3 class="fs-3 ms-3">Leave A Comment</h3>
+              </div>
+              <div class="contact-form ms-3 mt-3 pb-4 px-2">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="E-mail"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Mobile No."
+                  />
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1-1"
+                    placeholder="Message"
+                    rows="5"
+                  ></textarea>
+                </div>
+                <button class="c-btn h-btn mt-3 py-2 px-4 rounded-pill">
+                  Submit
+                </button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              
+                <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i></button>
+              
+              <div class="modal-body px-4">
+                <div class="img">
+                  <img src="images/dictionary.png" class="img-fluid" alt="">
+                </div>
+                <div class="content mt-3">
+                  
+                  <p class="text-muted mt-3"></p>
+                </div>
+              </div>
+              <div class="heading px-2">
+                <h3 class="fs-3 ms-3">Leave A Comment</h3>
+              </div>
+              <div class="contact-form ms-3 mt-3 pb-4 px-2">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="E-mail"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Mobile No."
+                  />
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    placeholder="Message"
+                    rows="5"
+                  ></textarea>
+                </div>
+                <button class="c-btn h-btn mt-3 py-2 px-4 rounded-pill">
+                  Submit
+                </button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- blog section ends here -->
+
+    <!-- contact section starts -->
+
+    <section class="contact py-5" id="contact">
+      <div class="heading text-center">
+        <small class="text-uppercase text-muted">Get in Touch</small>
+        <h3 class="fw-bold">Any Questions? Feel Free to Contact</h3>
+      </div>
+    
+      <div class="row justify-content-evenly mt-5">
+       <!-- Contact Info -->
+<div class="row justify-content-start mt-5">
+  <div class="col-md-5 col-10 contact-details" data-aos="slide-right">
+    <ul class="list-unstyled ps-0">
+      <li class="d-flex align-items-start mb-4">
+        <i class="bi bi-geo-alt-fill fs-4 text-primary me-3"></i>
+        <span class="text-warning">DantaRamgarh, Sikar (Rajasthan)</span>
+      </li>
+      <li class="d-flex align-items-start mb-4">
+        <i class="bi bi-telephone-fill fs-4 text-success me-3"></i>
+        <span class="text-warning">+91 9929616040</span>
+      </li>
+      <li class="d-flex align-items-start mb-4">
+        <i class="bi bi-send-fill fs-4 text-danger me-3"></i>
+        <span class="text-warning">vinodbusiness01@gmail.com</span>
+      </li>
+      <li class="d-flex align-items-start mb-4">
+        <i class="bi bi-globe-americas fs-4 text-info me-3"></i>
+        <span>
+          <a href="https://vinodchoudhary.in" target="_blank" rel="noopener" class="text-decoration-none text-warning fw-medium">
+            vinodchoudhary.in
+          </a>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
+            <!-- Contact Form -->
+            <style>
+              body {
+                background: #f4f6f9;
+                color: #333;
+                font-family: 'Segoe UI', sans-serif;
+                
+              }
+          
+              .section-wrapper {
+                display: flex;
+                justify-content:center;
+                width:1500px;
+                gap:30px;
+                margin:auto;
+              }
+          
+              .contact-form  {
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 16px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                width:31%;
+                height: 710px;
+
+              }
+              .form-box-1 {
+      background: #ffffff;
+      width: 450px;
+      height: 710px;
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    input, select, button {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 20px;
+      border: 1px solid #cbd5e1;
+      transition: 0.3s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+    #chatBox {
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      background: #f9fafb;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-bottom: 80px;
+    }
+
+    .message {
+      max-width: 75%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.95rem;
+      position: relative;
+      word-wrap: break-word;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .Developer {
+      align-self: flex-start;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border-top-left-radius: 0;
+    }
+    .Client {
+      align-self: flex-end;
+      background-color: #dcfce7;
+      color: #166534;
+      border-top-right-radius: 0;
+    }
+
+    .timestamp {
+      font-size: 0.75rem;
+      color: #6b7280;
+      margin-top: 4px;
+      align-self: flex-end;
+    }
+    #typingIndicator {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+    .chat-controls {
+      display: flex;
+      gap: 8px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .chat-controls input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #cbd5e1;
+      margin-bottom: 0;
+      width: 174px;
+    }
+
+    .chat-controls button {
+      flex-shrink: 0;
+      padding: 10px 16px;
+      border-radius: 30px;
+      background-color: #18c933;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 3px;
+      width: 99px;
+    }
+    #chatSection {
+      display: flex;
+      flex-direction: column;
+      height: 50%;
+    }
+          
+      
+            </style>
+          </head>
+          
+          <body>
+            <div class="section-wrapper">
+              <!-- Contact Form -->
+            
+              <form class="contact-form" id="contactForm">
+                <div class="text-center">
+                <h3>Contact Us</h3>
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="nameInput" placeholder="Name" required />
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="emailInput" placeholder="E-mail" required />
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="mobileInput" placeholder="Mobile No." required />
+                </div>
+                <div class="mb-3">
+                  <textarea class="form-control" id="messageInput" placeholder="Message" rows="5" required></textarea>
+                </div>
+                
+                  <button type="submit" class="btn btn-primary py-2 w-50">Submit</button>
+                </div>
+              </form>
+            
+              <div class="chat-container">
+                <div class="container form-box-1">
+                  <header>Developer/Client Chat</header>
+                  <div class="content" id="authSection">
+                    <input type="email" id="email" placeholder="Email" />
+                    <input type="password" id="password" placeholder="Password" />
+                    <label for="role">Select your role:</label>
+                    <select id="role">
+                      <option value="Developer">Developer</option>
+                      <option value="Client">Client</option>
+                    </select>
+                    <button onclick="login()">Login</button>
+                  </div>
+                  <div class="content" id="chatSection" style="display:none">
+                    <div id="chatBox"></div>
+                    <div id="typingIndicator"></div>
+                    <div class="chat-controls">
+                      <input id="chatInput" placeholder="Type your message..." />
+                      <button onclick="sendMessage()">Send</button>
+                    </div>
+                  </div>
+          </div>
+          </div>
+          </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const form = document.getElementById("contactForm");
+          
+              form.addEventListener("submit", async function (e) {
+                e.preventDefault(); // ❗ Prevent default redirect behavior
+          
+                const name = document.getElementById("nameInput").value.trim();
+                const email = document.getElementById("emailInput").value.trim();
+                const mobile = document.getElementById("mobileInput").value.trim();
+                const message = document.getElementById("messageInput").value.trim();
+          
+                if (!name || !email || !mobile || !message) {
+                  alert("❗Please fill all fields.");
+                  return;
+                }
+          
+                try {
+                  const response = await fetch("http://localhost:5000/api/contact", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ name, email, mobile, message }),
+                  });
+          
+                  const data = await response.json();
+          
+                  if (response.ok) {
+                    alert("✅ Message sent successfully!");
+                    form.reset();
+                  } else {
+                    alert("❌ Failed to send message: " + data.error);
+                  }
+                } catch (err) {
+                  alert("⚠️ Something went wrong: " + err.message);
+                }
+              });
+            });
+            </script>
+            
+  <audio id="notifySound" src="https://www.soundjay.com/button/beep-07.mp3"></audio>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+    import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { format } from "https://cdn.skypack.dev/date-fns";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDByvCgEo-fxXkEVweVtNCxlmSk0pCl_MY",
+      authDomain: "portfolio-website-main-fbdea.firebaseapp.com",
+      projectId: "portfolio-website-main-fbdea",
+      storageBucket: "portfolio-website-main-fbdea.firebasestorage.app",
+      messagingSenderId: "836990019221",
+      appId: "1:836990019221:web:c9f98a767d497c62a89d9c",
+      measurementId: "G-YFBQN2FGBP"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    let currentRole = "";
+
+    window.login = async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      currentRole = document.getElementById("role").value;
+
+      try {
+        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        await setDoc(doc(db, "users", userCred.user.uid), {
+          email,
+          role: currentRole,
+          lastSeen: serverTimestamp()
+        });
+        document.getElementById("authSection").style.display = "none";
+        document.getElementById("chatSection").style.display = "flex";
+        loadChat();
+        listenTyping();
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+
+    window.sendMessage = async () => {
+      const text = document.getElementById("chatInput").value.trim();
+      if (text === "") return;
+      await addDoc(collection(db, "messages"), {
+        text,
+        sender: currentRole,
+        timestamp: serverTimestamp()
+      });
+      document.getElementById("chatInput").value = "";
+    };
+
+    document.getElementById("chatInput").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
+      typing();
+    });
+
+    async function loadChat() {
+      const q = query(collection(db, "messages"), orderBy("timestamp"));
+      const notifySound = document.getElementById("notifySound");
+      onSnapshot(q, (snapshot) => {
+        const chatBox = document.getElementById("chatBox");
+        chatBox.innerHTML = "";
+        snapshot.forEach(doc => {
+          const msg = doc.data();
+          const time = msg.timestamp?.toDate ? format(msg.timestamp.toDate(), "hh:mm a") : "";
+          const div = document.createElement("div");
+          div.className = `message ${msg.sender}`;
+          div.innerHTML = `<span>${msg.text}</span><span class="timestamp">${time}</span>`;
+          chatBox.appendChild(div);
+
+          if (msg.sender !== currentRole) notifySound.play();
+        });
+        chatBox.scrollTop = chatBox.scrollHeight;
+      });
+    }
+
+    async function typing() {
+      await setDoc(doc(db, "typingStatus", currentRole), { typing: true });
+      setTimeout(async () => {
+        await setDoc(doc(db, "typingStatus", currentRole), { typing: false });
+      }, 1000);
+    }
+
+    function listenTyping() {
+      const otherRole = currentRole === "Developer" ? "Client" : "Developer";
+      onSnapshot(doc(db, "typingStatus", otherRole), (docSnap) => {
+        document.getElementById("typingIndicator").innerText = docSnap.data()?.typing ? `${otherRole} is typing...` : "";
+      });
+    }
+  </script>
+          </script>
+          <!-- Chat Container -->
+         
+          
+    </section>
+    <!-- contact section ends here -->
+
+      <!-- now we will make back to top button when user click on it it will be redirected to top page  -->
+    <button
+      type="button"
+      class="btn btn-floating btn-lg rounded-pill"
+      id="btn-back-to-top"
+      title="Back to Top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- footer section starts  -->
+    <footer class="text-center text-muted py-4">
+      <h3 class="text-white pt-4" data-aos="fade-up">Portfolio</h3>
+      <div class="link-group mt-5" data-aos="fade-up">
+        <a href="#home">Home</a>
+        <div class="vr"></div>
+        <a href="#about">About</a>
+        <div class="vr"></div>
+        <a href="#service">Service</a>
+        <div class="vr"></div>
+        <a href="#portfolio">Portfolio</a>
+        <div class="vr"></div>
+        <a href="#blog">Blog</a>
+        <div class="vr"></div>
+        <a href="#contact">Contact</a>
+      </div>
+     
+      </div>
+      <hr class="text-muted my-4" />
+      <h2>Developer Vinod Choudhary</h2>
+      <h5>Instagram</h5>
+      <a href="https://www.instagram.com/vinodchoudharyy01/" target="_blank" class="text-decoration-none text-muted">vinodchoudharyy01</a>
+    
+      <h5>GitHub</h5>       
+      <a href="https://github.com/vinodchoudharyy" target ="_blank" class="text-decoration-none text-muted">vinodchoudharyy</a>
+      <h4>© Copyright Portfolio 2025 Vinod Choudhary. All rights reserved.</h4>
+      <footer>© Copyright Portfolio 2025 Vinod Choudhary. All rights reserved.</footer>
+     
+    </footer>
+    <!-- footer section ends here -->
+
+      <!-- bootstrap javascript cdn link  -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- AOS library javascript link  -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // initializing AOS library
+      AOS.init({
+        duration: 1000,
+        offset: 50,
+      });
+    </script>
+    <!-- custom js file linking -->
+    <script src="js/script.js"></script>
+    
+  </body>
+</html>
+ <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet" />
+
+  <!-- Vanta.js + Three.js for background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    #bg {
+      min-height: 100vh;
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #6f34fe;
+      margin-bottom: 20px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .c-btn {
+      background: #fca61f;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .c-btn:hover {
+      background-color: #6f34fe;
+    }
+
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      border-radius: 8px;
+      position: fixed;
+      z-index: 1000;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 3s;
+    }
+
+    @keyframes fadein {
+      from {bottom: 10px; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 10px; opacity: 0;}
+    }
+  </style>
