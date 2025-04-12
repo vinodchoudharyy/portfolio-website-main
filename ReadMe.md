@@ -7,15 +7,13 @@
 
   Responsive Portfolio Website using HTML, CSS, and JavaScript.
 
-  <a href="https://vinodchoudharyy.github.io/portfolio-website-main/"><strong>➥ Live Demo</strong></a>
+
 
 </div>
 
 <br />
 
-### Desktop Preview
 
-https://github.com/pawantech12/portfolio-website/assets/118673866/0322c419-a173-4aa9-a360-b09bd7bd24aa
 
 ### Prerequisites
 
